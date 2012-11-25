@@ -2,7 +2,7 @@ program spritetest;
 
 {$FRAME_WIDTH  512}
 {$FRAME_HEIGHT 448}
-{$BACKGROUND $3366ff}
+{$BACKGROUND $003399}
 {$FRAME_RATE 32}
 
 uses Flash8Ext, Key;
