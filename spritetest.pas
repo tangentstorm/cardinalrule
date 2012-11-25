@@ -9,7 +9,7 @@ uses Flash8Ext, Key;
 var
   loader       : MovieClipLoader;
   hero         : MovieClip;
-  dx, dy       : integer;
+  dx, dy       : double;
   min_y, max_y : integer;
   min_x, max_x : integer;
   scr_w, scr_h : integer;
@@ -21,8 +21,11 @@ begin
     hero._y := hero._y + dy;
     if hero._y < min_y then hero._y := min_y;
     if hero._x < min_x then hero._x := min_x;
-    if hero._y > max_y then hero._y := max_y;
     if hero._x > max_x then hero._x := max_x;
+    if hero._y > max_y then begin
+      hero._y := max_y;
+      dy := 0;
+    end else dy := dy + 0.2;
   end;
 end;
 
