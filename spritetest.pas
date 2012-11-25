@@ -16,14 +16,13 @@ var
 
 procedure onEnterFrame;
 begin
-  
   if hero <> nil then begin
     hero._x := hero._x + dx;
     hero._y := hero._y + dy;
     if hero._y < min_y then hero._y := min_y;
+    if hero._x < min_x then hero._x := min_x;
     if hero._y > max_y then hero._y := max_y;
     if hero._x > max_x then hero._x := max_x;
-    if hero._x < max_x then hero._x := max_x;
   end;
 end;
 
@@ -36,6 +35,10 @@ begin
   if o = hero then begin
     o._x := scr_w div 2;
     o._y := scr_h div 2;
+    min_y := 0;
+    max_y := scr_h - hero._height;
+    max_x := scr_w - hero._width;
+    min_x := 0;
   end;
 end;
 
@@ -63,10 +66,6 @@ begin
   dy := 0;
   scr_h := 448;
   scr_w := 512;
-  max_y := scr_h - hero._height;
-  min_y := 0;
-  max_x := scr_w - hero._width;
-  min_x := 0;
   
   loader := MovieClipLoader.Create;
   loader.addListener(_root);
